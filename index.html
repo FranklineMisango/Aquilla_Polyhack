@@ -1,54 +1,39 @@
 <!doctype html>
 <html>
 
-	<head>
+	<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 		<title>Aquila AI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="index.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Poppins:wght@400;700&display=swap"
-		rel="stylesheet">
-		<link rel="stylesheet" href="index.css">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 
 	<body>
-		<header>
-			<img src="/images/logo.png" alt="">
-			<a href="/"><span>Project</span>Aquila</a>
-		</header>
-		<main>	
-            
-			<!-- The Setup -->	
-			<section id="setup-container">
-				<div class="setup-inner">
-					<img src="/images/mascot.png">
-					<div class="speech-bubble-ai" id="speech-bubble-ai">
-						<p id="movie-boss-text">
-							Hi, I am Aquila, Tell me your financial tasks and I will be able to do it for you within seconds. I can find the best exchange rates for you, handle 
-                            your cross-border payments and teach you finance!
-						</p>
+		<main>
+			<section class="chatbot-container">
+				<div class="chatbot-header">
+					<img src="images/logo.png" class="logo">
+					<h1>Aquila Finance</h1>
+					<h2>Financial Digital Assistant</h2>
+					<p class="supportId">ID: 1234</p>
+				</div>
+				<div class="chatbot-conversation-container" id="chatbot-conversation">
+					<div class="speech speech-ai">
+						Hi, my name is Aquila, How can I easen your financial transactions..Ask me anything?
 					</div>
 				</div>
-				<div class="setup-inner setup-input-container" id="setup-input-container">
-					<textarea id="setup-textarea" placeholder="An Intelligent financial AI wants to easen your work."></textarea>
-					<button class="send-btn" id="send-btn" aria-label="send">
-							<img src="images/send-btn-icon.png" alt="send">
+				<form id="form" class="chatbot-input-container">
+					<input name="user-input" type="text" id="user-input" required>
+					<button id="submit-btn" class="submit-btn">
+						<img 
+							src="images/send-btn-icon.png" 
+							class="send-btn-icon"
+						>
 					</button>
-				</div>
-			</section>	
-
-            
-			<!-- The Output : Under construction-->	
-			<section class="output-container" id="output-container">
-				<div id="output-img-container" class="output-img-container"></div>
-				<h1 id="output-title"></h1>
-				<h2 id="output-stars"></h2>
-				<p id="output-text"></p>
+				</form>
 			</section>
-		</main>	
-		<footer>
-			&copy; 2023 Project Aquilla
-		</footer>
+		</main>
 		<script type="module" src="index.js"></script>
 	</body>
 
