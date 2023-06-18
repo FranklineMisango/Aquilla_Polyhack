@@ -1,0 +1,18 @@
+{
+  "name": "project",
+  "dependencies": {
+    "express": "^4.18.2",
+    "import": "1.0.0",
+    "openai": "^3.3.0",
+    "require": "^0.4.4"
+  },
+    "devDependencies": {
+    "vite": "latest"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
