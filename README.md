@@ -7,15 +7,27 @@ $ npm install
 $ npm start
 ````
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+# Aquila - Intelligent Cross-border Payment Platform
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+Aquila is a groundbreaking platform focused on optimizing cross-border payments experience for its users. Built using advanced technologies such as Artificial Intelligence (AI) and OpenAPIs, Aquila simplifies the complexity inherent in navigating multiple currencies, diverse payment rails, and strict compliance regulations.
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+## Key Features
 
-Happy Coding!
+- **AI-Powered Chatbot:** Aquila incorporates an AI chatbot capable of simplifying complex cross-border payment terminologies. This tool is an intuitive guide that walks users through the payment execution process, flags potential compliance issues, and schedules payments according to user preferences.
+
+- **Data-Driven Improvements:** The platform continuously collects and analyzes usage data to inform future enhancements, ensuring a perpetually improving customer experience.
+
+- **User-Centric Interface:** With a focus on user experience, Aquila offers a smart, straightforward interface designed for efficiency and ease of use.
+
+## Purpose
+
+Aquila has been developed in response to the challenges often faced in making cross-border payments. By harnessing the power of AI and OpenAPI technologies, Aquila provides a straightforward, efficient solution to the complex and often daunting task of executing cross-border payments.
+
+## Summary
+
+Aquila revolutionizes the cross-border payments process by intelligently integrating advanced technologies to provide a streamlined, user-centric solution. By simplifying complex processes and continuously learning from user interactions, Aquila offers a unique, customer-focused approach to international payments.
+
+## Future Directions
+
+As we continue to develop Aquila, we plan to introduce more features to further enhance our users' experience. These may include real-time tracking of cross-border transactions, integration with more payment rails, and more sophisticated AI capabilities. Stay tuned for updates!
+
