@@ -29,4 +29,3 @@ Aquila revolutionizes the cross-border payments process by intelligently integra
 ## Future Directions
 
 As we continue to develop Aquila, we plan to introduce more features to further enhance our users' experience. These may include real-time tracking of cross-border transactions, integration with more payment rails, and more sophisticated AI capabilities. Stay tuned for updates!
-
