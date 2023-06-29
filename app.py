@@ -1,43 +1,51 @@
-from langchain import OpenAI
-from llama_index import SimpleDirectoryReader, LangchainEmbedding, GPTListIndex,GPTVectorStoreIndex, PromptHelper
-from llama_index import LLMPredictor, ServiceContext
-from config import OPEN_AI_API_KEY
-import sys
 import os
+from config import OPEN_AI_API_KEY
+from langchain.llms import OpenAI
+from langchain.agents.agent_toolkits import create_vectorstore_agent, VectorStoreToolkit, VectorStoreInfo
+from langchain.vectorstores import Chroma
+from langchain.document_loaders import PyPDFLoader
+from langchain.embeddings import OpenAIEmbeddings
+import streamlit as st
 
-os.environ["OPENAI_API_KEY"] = OPEN_AI_API_KEY
+os.environ['OPENAI_API_KEY'] = OPEN_AI_API_KEY
 
-def construct_index(directory_path):
-    # set maximum input size
-    max_input_size = 4096
-    # set number of output tokens
-    num_outputs = 256
-    # set maximum chunk overlap
-    max_chunk_overlap = 0.2  # Adjust this value as per your needs
-    # set chunk size limit
-    chunk_size_limit = 600
+# Create instance of OpenAI LLM
+llm = OpenAI(temperature=0.1, verbose=True)
+embeddings = OpenAIEmbeddings()
 
-    prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap=max_chunk_overlap, chunk_size_limit=chunk_size_limit)
+# Set Streamlit app title
+st.title('Aquila Digital Assistant')
+st.success('This app allows you to interact with Aquila, your financial digital assistant.')
 
-    # define LLM
-    llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-002", max_tokens=num_outputs))
-    
-    documents = SimpleDirectoryReader(directory_path).load_data()
-    
-    service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor)
-    index = GPTVectorStoreIndex.from_documents(documents, service_context=service_context)
-    
-    index.save_to_disk('index.json')
-    
-    return index
+# Create a text input box for the user
+prompt = st.text_input('Input your question or query here')
 
-def ask_bot(input_index = 'index.json'):
-  index = GPTVectorStoreIndex.load_from_disk(input_index)
-  while True:
-    query = input('What do you want to ask the bot?   \n')
-    response = index.query(query, response_mode="compact")
-    print ("\nBot says: \n\n" + response.response + "\n\n\n")
+# If the user hits enter
+if prompt:
+    # Load the PDF document using PyPDFLoader
+    loader = PyPDFLoader('Aquilla_Notes.pdf')
 
-index = construct_index("/content/")
+    # Split pages from the PDF
+    pages = loader.load_and_split()
 
-ask_bot('index.json')
+    # Load documents into the vector database (ChromaDB)
+    store = Chroma.from_documents(pages, embeddings, collection_name='uploaded_document')
+
+    # Create a vectorstore info object
+    vectorstore_info = VectorStoreInfo(
+        name="uploaded_document",
+        description="Uploaded financial document as a PDF",
+        vectorstore=store
+    )
+
+    # Create a vectorstore toolkit
+    toolkit = VectorStoreToolkit(vectorstore_info=vectorstore_info)
+
+    # Create a vectorstore agent
+    agent_executor = create_vectorstore_agent(llm=llm, toolkit=toolkit, verbose=True)
+
+    # Pass the prompt to the agent
+    response = agent_executor.run(prompt)
+
+    # Write the response to the screen
+    st.write(response)

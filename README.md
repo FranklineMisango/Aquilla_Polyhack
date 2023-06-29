@@ -3,8 +3,7 @@
 Quick start:
 
 ```
-$ npm install
-$ npm start
+streamlit run app.py
 ````
 
 # Aquila - Intelligent Cross-border Payment Platform
