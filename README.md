@@ -1,10 +1,10 @@
 # co6b14da2a553f2884404d8bf
 
 Quick start:
-
-```
-streamlit run app.py
-````
+* clone this repository
+* create a new file called config.py 
+* in the config.py, type OPEN_AI_API_KEY = 'REPLACE_WITH_OWN_OPEN_AI_API_KEY' 
+* In terminal, `streamlit run app.py`
 
 # Aquila - Intelligent Cross-border Payment Platform
 
