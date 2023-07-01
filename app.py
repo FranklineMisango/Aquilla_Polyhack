@@ -21,7 +21,7 @@ st.success('This app allows you to interact with Aquila, your financial digital 
 prompt = st.text_input('Input your question or query here')
 
 # If the user hits enter
-if prompt:
+if st.button('Submit'):
     # Load the PDF document using PyPDFLoader
     loader = PyPDFLoader('Aquilla_Notes.pdf')
 
